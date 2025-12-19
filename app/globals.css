@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Custom earthy color palette for portfolio */
+  --background: #fefae0;
+  --foreground: #283618;
+  --card: #fefae0;
+  --card-foreground: #283618;
+  --popover: #fefae0;
+  --popover-foreground: #283618;
+  --primary: #606c38;
+  --primary-foreground: #fefae0;
+  --secondary: #f5f0dc;
+  --secondary-foreground: #283618;
+  --muted: #f5f0dc;
+  --muted-foreground: #606c38;
+  --accent: #bc6c25;
+  --accent-foreground: #fefae0;
+  --destructive: #bc6c25;
+  --destructive-foreground: #fefae0;
+  --border: rgba(96, 108, 56, 0.2);
+  --input: rgba(96, 108, 56, 0.2);
+  --ring: #bc6c25;
+  --radius: 0.25rem;
+  --sidebar: #fefae0;
+  --sidebar-foreground: #283618;
+  --sidebar-primary: #606c38;
+  --sidebar-primary-foreground: #fefae0;
+  --sidebar-accent: rgba(96, 108, 56, 0.05);
+  --sidebar-accent-foreground: #283618;
+  --sidebar-border: rgba(96, 108, 56, 0.2);
+  --sidebar-ring: #bc6c25;
+}
+
+/* Proper dark mode with deep olive tones, not pure black */
+.dark {
+  --background: #1a1f14;
+  --foreground: #f5f0dc;
+  --card: #1a1f14;
+  --card-foreground: #f5f0dc;
+  --popover: #222819;
+  --popover-foreground: #f5f0dc;
+  --primary: #8a9a5b;
+  --primary-foreground: #1a1f14;
+  --secondary: #2a3020;
+  --secondary-foreground: #f5f0dc;
+  --muted: #2a3020;
+  --muted-foreground: #a8b090;
+  --accent: #d4854a;
+  --accent-foreground: #1a1f14;
+  --destructive: #d4854a;
+  --destructive-foreground: #1a1f14;
+  --border: rgba(138, 154, 91, 0.25);
+  --input: rgba(138, 154, 91, 0.25);
+  --ring: #d4854a;
+  --sidebar: #151a10;
+  --sidebar-foreground: #f5f0dc;
+  --sidebar-primary: #8a9a5b;
+  --sidebar-primary-foreground: #f5f0dc;
+  --sidebar-accent: rgba(138, 154, 91, 0.1);
+  --sidebar-accent-foreground: #f5f0dc;
+  --sidebar-border: rgba(138, 154, 91, 0.2);
+  --sidebar-ring: #d4854a;
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Slightly increased base font size for better presence */
+    font-size: 17px;
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  /* Dark mode selection colors */
+  .dark ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
